@@ -1,4 +1,4 @@
-FROM 310189683227.dkr.ecr.us-east-1.amazonaws.com/bia
+FROM 665550313384.dkr.ecr.us-east-1.amazonaws.com/bia
 
 RUN npm install -g npm@latest --loglevel=error
 WORKDIR /usr/src/app
@@ -9,7 +9,7 @@ RUN npm install --loglevel=error
 
 COPY . .
 
-RUN REACT_APP_API_URL=http://localhost:3001 SKIP_PREFLIGHT_CHECK=true npm run build --prefix client
+RUN REACT_APP_API_URL=http://bia-alb-1207544918.us-east-1.elb.amazonaws.com SKIP_PREFLIGHT_CHECK=true npm run build --prefix client
 
 RUN mv client/build build
 
